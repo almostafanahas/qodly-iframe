@@ -54,6 +54,7 @@ const commonSettings: TSetting[] = [
     type: ESetting.SELECT,
     defaultValue: '',
     options: [
+      { label: '', value: '' },
       { label: 'no-referrer-when-downgrade', value: 'no-referrer-when-downgrade' },
       { label: 'no-referrer', value: 'no-referrer' },
       { label: 'same-origin', value: 'same-origin' },
@@ -70,6 +71,7 @@ const commonSettings: TSetting[] = [
     type: ESetting.SELECT,
     defaultValue: '',
     options: [
+      { label: '', value: '' },
       { label: 'allow-forms', value: 'allow-forms' },
       { label: 'allow-pointer-lock', value: 'allow-pointer-lock' },
       { label: 'allow-popups', value: 'allow-popups' },
@@ -82,7 +84,7 @@ const commonSettings: TSetting[] = [
     key: 'loading',
     label: 'Loading',
     type: ESetting.SELECT,
-    defaultValue: '',
+    defaultValue: 'eager',
     options: [
       { label: 'eager', value: 'eager' },
       { label: 'lazy', value: 'lazy' },

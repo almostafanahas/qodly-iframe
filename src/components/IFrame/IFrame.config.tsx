@@ -21,36 +21,7 @@ export default {
     displayName: 'IFrame',
     exposed: true,
     icon: PiFrameCornersBold,
-    events: [
-      {
-        label: 'On Click',
-        value: 'onclick',
-      },
-      {
-        label: 'On Blur',
-        value: 'onblur',
-      },
-      {
-        label: 'On Focus',
-        value: 'onfocus',
-      },
-      {
-        label: 'On MouseEnter',
-        value: 'onmouseenter',
-      },
-      {
-        label: 'On MouseLeave',
-        value: 'onmouseleave',
-      },
-      {
-        label: 'On KeyDown',
-        value: 'onkeydown',
-      },
-      {
-        label: 'On KeyUp',
-        value: 'onkeyup',
-      },
-    ],
+    events: [],
     datasources: {
       accept: ['string'],
     },
@@ -64,6 +35,7 @@ export default {
     allow: [],
     referrerpolicy: '',
     sandbox: '',
+    loading: 'eager',
   },
 } as T4DComponentConfig<IIFrameProps>;
 

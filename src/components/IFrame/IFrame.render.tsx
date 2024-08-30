@@ -26,7 +26,7 @@ const IFrame: FC<IIFrameProps> = ({
   useEffect(() => {
     if (!ds) return;
 
-    const listener = async (/* event */) => {
+    const listener = async () => {
       const v = await ds.getValue<string>();
       setValue(v);
     };
@@ -38,7 +38,6 @@ const IFrame: FC<IIFrameProps> = ({
     return () => {
       ds.removeListener('changed', listener);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ds]);
 
   let referrerPolicyVar: HTMLAttributeReferrerPolicy = '';
