@@ -33,7 +33,7 @@ export default {
     width: '100%',
     allowFullscreen: true,
     allow: [],
-    referrerpolicy: '',
+    referrerpolicy: 'strict-origin-when-cross-origin',
     sandbox: '',
     loading: 'eager',
   },

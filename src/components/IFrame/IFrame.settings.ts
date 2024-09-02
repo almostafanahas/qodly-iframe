@@ -52,9 +52,8 @@ const commonSettings: TSetting[] = [
     key: 'referrerpolicy',
     label: 'Referrer Policy',
     type: ESetting.SELECT,
-    defaultValue: '',
+    defaultValue: 'strict-origin-when-cross-origin',
     options: [
-      { label: '', value: '' },
       { label: 'no-referrer-when-downgrade', value: 'no-referrer-when-downgrade' },
       { label: 'no-referrer', value: 'no-referrer' },
       { label: 'same-origin', value: 'same-origin' },
@@ -73,11 +72,20 @@ const commonSettings: TSetting[] = [
     options: [
       { label: '', value: '' },
       { label: 'allow-forms', value: 'allow-forms' },
-      { label: 'allow-pointer-lock', value: 'allow-pointer-lock' },
+      { label: 'allow-modals', value: 'allow-modals' },
       { label: 'allow-popups', value: 'allow-popups' },
+      { label: 'allow-popups-to-escape-sandbox', value: 'allow-popups-to-escape-sandbox' },
       { label: 'allow-same-origin', value: 'allow-same-origin' },
       { label: 'allow-scripts', value: 'allow-scripts' },
       { label: 'allow-top-navigation', value: 'allow-top-navigation' },
+      {
+        label: 'allow-top-navigation-by-user-activation',
+        value: 'allow-top-navigation-by-user-activation',
+      },
+      { label: 'allow-downloads', value: 'allow-downloads' },
+      { label: 'allow-orientation-lock', value: 'allow-orientation-lock' },
+      { label: 'allow-presentation', value: 'allow-presentation' },
+      { label: 'allow-pointer-lock', value: 'allow-pointer-lock' },
     ],
   },
   {
