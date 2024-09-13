@@ -9,9 +9,9 @@ const IFrame: FC<IIFrameProps> = ({
   height,
   width,
   allowFullscreen,
-  allow,
+  allow = [{ permission: '' }],
   referrerpolicy,
-  sandbox,
+  sandbox = [{ permission: '' }],
   loading,
   style,
   className,
@@ -67,6 +67,14 @@ const IFrame: FC<IIFrameProps> = ({
       referrerPolicyVar = '';
   }
 
+  let list: string[] = [];
+  const processArray = (arr: { permission: string }[], separator = '') => {
+    arr.forEach((element) => {
+      list.push(element.permission);
+    });
+    return list.join(separator);
+  };
+
   return (
     <span ref={connect} style={style} className={cn(className, classNames)}>
       <iframe
@@ -75,10 +83,10 @@ const IFrame: FC<IIFrameProps> = ({
         src={value}
         height={height}
         width={width}
-        allow={allow?.join(';')}
+        allow={processArray(allow, ';')}
         allowFullScreen={allowFullscreen}
         referrerPolicy={referrerPolicyVar}
-        sandbox={sandbox}
+        sandbox={processArray(sandbox, ' ')}
         loading={loading}
       />
     </span>

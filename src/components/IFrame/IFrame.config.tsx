@@ -32,9 +32,9 @@ export default {
     height: '100%',
     width: '100%',
     allowFullscreen: true,
-    allow: [],
+    allow: [{ permission: '' }],
     referrerpolicy: 'strict-origin-when-cross-origin',
-    sandbox: '',
+    sandbox: [{ permission: '' }],
     loading: 'eager',
   },
 } as T4DComponentConfig<IIFrameProps>;
@@ -45,8 +45,8 @@ export interface IIFrameProps extends webforms.ComponentProps {
   height?: string;
   width?: string;
   allowFullscreen?: boolean;
-  allow?: string[];
+  allow?: [{ permission: string }];
   referrerpolicy?: string;
-  sandbox?: string;
+  sandbox?: [{ permission: string }];
   loading?: 'lazy' | 'eager';
 }

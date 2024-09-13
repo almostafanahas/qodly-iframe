@@ -37,7 +37,7 @@ const commonSettings: TSetting[] = [
   {
     key: 'allow',
     label: 'Permissions',
-    titleProperty: 'Permission',
+    titleProperty: 'permission',
     type: ESetting.DATAGRID,
     data: [
       {
@@ -67,25 +67,33 @@ const commonSettings: TSetting[] = [
   {
     key: 'sandbox',
     label: 'Sandbox',
-    type: ESetting.SELECT,
-    defaultValue: '',
-    options: [
-      { label: '', value: '' },
-      { label: 'allow-forms', value: 'allow-forms' },
-      { label: 'allow-modals', value: 'allow-modals' },
-      { label: 'allow-popups', value: 'allow-popups' },
-      { label: 'allow-popups-to-escape-sandbox', value: 'allow-popups-to-escape-sandbox' },
-      { label: 'allow-same-origin', value: 'allow-same-origin' },
-      { label: 'allow-scripts', value: 'allow-scripts' },
-      { label: 'allow-top-navigation', value: 'allow-top-navigation' },
+    titleProperty: 'permission',
+    type: ESetting.DATAGRID,
+    data: [
       {
-        label: 'allow-top-navigation-by-user-activation',
-        value: 'allow-top-navigation-by-user-activation',
+        key: 'permission',
+        label: 'Permission',
+        type: ESetting.SELECT,
+        defaultValue: '',
+        options: [
+          { label: '', value: '' },
+          { label: 'allow-forms', value: 'allow-forms' },
+          { label: 'allow-modals', value: 'allow-modals' },
+          { label: 'allow-popups', value: 'allow-popups' },
+          { label: 'allow-popups-to-escape-sandbox', value: 'allow-popups-to-escape-sandbox' },
+          { label: 'allow-same-origin', value: 'allow-same-origin' },
+          { label: 'allow-scripts', value: 'allow-scripts' },
+          { label: 'allow-top-navigation', value: 'allow-top-navigation' },
+          {
+            label: 'allow-top-navigation-by-user-activation',
+            value: 'allow-top-navigation-by-user-activation',
+          },
+          { label: 'allow-downloads', value: 'allow-downloads' },
+          { label: 'allow-orientation-lock', value: 'allow-orientation-lock' },
+          { label: 'allow-presentation', value: 'allow-presentation' },
+          { label: 'allow-pointer-lock', value: 'allow-pointer-lock' },
+        ],
       },
-      { label: 'allow-downloads', value: 'allow-downloads' },
-      { label: 'allow-orientation-lock', value: 'allow-orientation-lock' },
-      { label: 'allow-presentation', value: 'allow-presentation' },
-      { label: 'allow-pointer-lock', value: 'allow-pointer-lock' },
     ],
   },
   {
