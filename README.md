@@ -6,17 +6,17 @@
 
 ## Properties
 
-| Name            | Type    | Default                           | Description                                                                                                                   |
-| --------------- | ------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Name            | string  | 'iframe'                          | Name of the `iframe`                                                                                                          |
-| HTML Content    | string  | '<p>Hello World !<p>'             | HTML content of the `iframe`                                                                                                  |
-| Height          | string  | '100%'                            | Height of the `iframe`                                                                                                        |
-| Width           | string  | '100%'                            | Width of the `iframe`                                                                                                         |
-| AllowFullscreen | boolean | false                             | Allow fullscreen mode                                                                                                         |
-| Allow           | string  | ''                                | defines what features are available to the `iframe` (for example, access to the microphone, camera, battery, web-share, etc.) |
-| Referrer Policy | string  | 'strict-origin-when-cross-origin' | Indicates which referrer to send when fetching the `iframe`'s resource                                                        |
-| Sandbox         | string  | ''                                | Controls the restrictions applied to the content embedded in the `iframe`                                                     |
-| Loading         | string  | 'eager'                           | Controls the loading behavior of the `iframe`                                                                                 |
+| Name             | Type            | Default                           | Description                                                                                                                   |
+| ---------------- | --------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name             | string          | 'iframe'                          | Name of the `iframe`                                                                                                          |
+| HTML Content     | string          | '<p>Hello World !<p>'             | HTML content of the `iframe`                                                                                                  |
+| Height           | string          | '100%'                            | Height of the `iframe`                                                                                                        |
+| Width            | string          | '100%'                            | Width of the `iframe`                                                                                                         |
+| Allow Fullscreen | boolean         | false                             | Allow fullscreen mode                                                                                                         |
+| Permissions      | Array of string | ['']                              | defines what features are available to the `iframe` (for example, access to the microphone, camera, battery, web-share, etc.) |
+| Referrer Policy  | string          | 'strict-origin-when-cross-origin' | Indicates which referrer to send when fetching the `iframe`'s resource                                                        |
+| Sandbox          | Array of string | ['']                              | Controls the restrictions applied to the content embedded in the `iframe`                                                     |
+| Loading          | string          | 'eager'                           | Controls the loading behavior of the `iframe`                                                                                 |
 
 ### `Referrer Policy` values:
 
