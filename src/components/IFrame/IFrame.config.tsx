@@ -28,10 +28,7 @@ export default {
   },
   defaultProps: {
     name: 'iframe',
-    srcdoc: '<p>Hello World !<p>',
-    height: '100%',
-    width: '100%',
-    allowFullscreen: true,
+    allowfullscreen: true,
     allow: [{ permission: '' }],
     referrerpolicy: 'strict-origin-when-cross-origin',
     sandbox: [{ permission: '' }],
@@ -41,12 +38,9 @@ export default {
 
 export interface IIFrameProps extends webforms.ComponentProps {
   name?: string;
-  srcdoc?: string;
-  height?: string;
-  width?: string;
-  allowFullscreen?: boolean;
-  allow?: [{ permission: string }];
+  allowfullscreen?: boolean;
+  Ipermissions?: [{ permission: string }];
   referrerpolicy?: string;
-  sandbox?: [{ permission: string }];
+  Isandbox?: [{ restriction: string }];
   loading?: 'lazy' | 'eager';
 }

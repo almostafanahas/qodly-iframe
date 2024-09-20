@@ -2,16 +2,17 @@ import { useRenderer, useSources } from '@ws-ui/webform-editor';
 import cn from 'classnames';
 import { FC, HTMLAttributeReferrerPolicy, useEffect, useState } from 'react';
 
+import { BsFillInfoCircleFill } from 'react-icons/bs';
+
 import { IIFrameProps } from './IFrame.config';
 
 const IFrame: FC<IIFrameProps> = ({
+  datasource,
   name,
-  height,
-  width,
-  allowFullscreen,
-  allow = [{ permission: '' }],
+  allowfullscreen,
+  Ipermissions = [{ permission: '' }],
   referrerpolicy,
-  sandbox = [{ permission: '' }],
+  Isandbox = [{ restriction: '' }],
   loading,
   style,
   className,
@@ -68,27 +69,36 @@ const IFrame: FC<IIFrameProps> = ({
   }
 
   let list: string[] = [];
-  const processArray = (arr: { permission: string }[], separator = '') => {
+  const processArray = (arr: any[], separator = '') => {
     arr.forEach((element) => {
-      list.push(element.permission);
+      list.push(element.restriction);
     });
     return list.join(separator);
   };
 
   return (
     <span ref={connect} style={style} className={cn(className, classNames)}>
-      <iframe
-        style={{ border: 'solid 1px gray' }}
-        name={value}
-        src={value}
-        height={height}
-        width={width}
-        allow={processArray(allow, ';')}
-        allowFullScreen={allowFullscreen}
-        referrerPolicy={referrerPolicyVar}
-        sandbox={processArray(sandbox, ' ')}
-        loading={loading}
-      />
+      {datasource && value ? (
+        <iframe
+          style={{ border: 'solid 1px gray' }}
+          name={value}
+          src={value}
+          height={style?.height}
+          width={style?.width}
+          allow={processArray(Ipermissions, ';')}
+          allowFullScreen={allowfullscreen}
+          referrerPolicy={referrerPolicyVar}
+          sandbox={processArray(Isandbox, ' ')}
+          loading={loading}
+        />
+      ) : (
+        <div className="text-red-500 font-semibold w-full h-28 border-2 rounded-lg border-red-500 flex flex-col justify-center items-center gap-2">
+          <BsFillInfoCircleFill className="text-3xl" />
+          <p className="ml-2">
+            {value ? "Please set the 'Datasource' property" : `No such datasource: '${datasource}'`}
+          </p>
+        </div>
+      )}
     </span>
   );
 };
