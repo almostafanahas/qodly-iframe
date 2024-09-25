@@ -9,44 +9,10 @@ const commonSettings: TSetting[] = [
     defaultValue: 'iframe',
   },
   {
-    key: 'srcdoc',
-    label: 'HTML Content',
-    type: ESetting.TEXT_FIELD,
-    defaultValue: '<p>Hello World !<p>',
-  },
-  {
-    key: 'height',
-    label: 'Height',
-    type: ESetting.UNITFIELD,
-    hasLabel: true,
-    defaultValue: '100%',
-  },
-  {
-    key: 'width',
-    label: 'Width',
-    type: ESetting.UNITFIELD,
-    hasLabel: true,
-    defaultValue: '100%',
-  },
-  {
     key: 'allowfullscreen',
     label: 'Allow Fullscreen',
     type: ESetting.CHECKBOX,
     defaultValue: true,
-  },
-  {
-    key: 'allow',
-    label: 'Permissions',
-    titleProperty: 'permission',
-    type: ESetting.DATAGRID,
-    data: [
-      {
-        key: 'permission',
-        label: 'Permission',
-        type: ESetting.TEXT_FIELD,
-        defaultValue: '',
-      },
-    ],
   },
   {
     key: 'referrerpolicy',
@@ -65,18 +31,40 @@ const commonSettings: TSetting[] = [
     ],
   },
   {
-    key: 'sandbox',
-    label: 'Sandbox',
+    key: 'loading',
+    label: 'Loading',
+    type: ESetting.SELECT,
+    defaultValue: 'eager',
+    options: [
+      { label: 'eager', value: 'eager' },
+      { label: 'lazy', value: 'lazy' },
+    ],
+  },
+  {
+    key: 'Ipermissions',
+    label: 'Permissions',
     titleProperty: 'permission',
     type: ESetting.DATAGRID,
     data: [
       {
         key: 'permission',
         label: 'Permission',
-        type: ESetting.SELECT,
+        type: ESetting.TEXT_FIELD,
         defaultValue: '',
+      },
+    ],
+  },
+  {
+    key: 'Isandbox',
+    label: 'Sandbox',
+    titleProperty: 'restriction',
+    type: ESetting.DATAGRID,
+    data: [
+      {
+        key: 'restriction',
+        label: 'Restriction',
+        type: ESetting.SELECT,
         options: [
-          { label: '', value: '' },
           { label: 'allow-forms', value: 'allow-forms' },
           { label: 'allow-modals', value: 'allow-modals' },
           { label: 'allow-popups', value: 'allow-popups' },
@@ -84,6 +72,10 @@ const commonSettings: TSetting[] = [
           { label: 'allow-same-origin', value: 'allow-same-origin' },
           { label: 'allow-scripts', value: 'allow-scripts' },
           { label: 'allow-top-navigation', value: 'allow-top-navigation' },
+          {
+            label: 'allow-storage-access-by-user-activation',
+            value: 'allow-storage-access-by-user-activation',
+          },
           {
             label: 'allow-top-navigation-by-user-activation',
             value: 'allow-top-navigation-by-user-activation',
@@ -94,16 +86,6 @@ const commonSettings: TSetting[] = [
           { label: 'allow-pointer-lock', value: 'allow-pointer-lock' },
         ],
       },
-    ],
-  },
-  {
-    key: 'loading',
-    label: 'Loading',
-    type: ESetting.SELECT,
-    defaultValue: 'eager',
-    options: [
-      { label: 'eager', value: 'eager' },
-      { label: 'lazy', value: 'lazy' },
     ],
   },
 ];

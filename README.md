@@ -9,9 +9,6 @@
 | Name             | Type            | Default                           | Description                                                                                                                   |
 | ---------------- | --------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Name             | string          | 'iframe'                          | Name of the `iframe`                                                                                                          |
-| HTML Content     | string          | '<p>Hello World !<p>'             | HTML content of the `iframe`                                                                                                  |
-| Height           | string          | '100%'                            | Height of the `iframe`                                                                                                        |
-| Width            | string          | '100%'                            | Width of the `iframe`                                                                                                         |
 | Allow Fullscreen | boolean         | false                             | Allow fullscreen mode                                                                                                         |
 | Permissions      | Array of string | ['']                              | defines what features are available to the `iframe` (for example, access to the microphone, camera, battery, web-share, etc.) |
 | Referrer Policy  | string          | 'strict-origin-when-cross-origin' | Indicates which referrer to send when fetching the `iframe`'s resource                                                        |
@@ -35,6 +32,7 @@
 - `allow-popups` : Allows popups such as `window.open()`.
 - `allow-popups-to-escape-sandbox` : Allows a sandboxed document to open a new browsing context without forcing the sandboxing flags upon it.
 - `allow-scripts` : Allows the page to run scripts (but not create pop-up windows).
+- `allow-storage-access-by-user-activation Experimental` : Allows a document loaded in the `iframe` to use the Storage Access API to request access to unpartitioned cookies.
 - `allow-same-origin` : If this token is not used, the resource is treated as being from a special origin that always fails the same-origin policy (potentially preventing access to data storage/cookies and some JavaScript APIs).
 - `allow-top-navigation` : Lets the resource navigate the top-level browsing context (the one named \_top).
 - `allow-top-navigation-by-user-activation` : Lets the resource navigate the top-level browsing context, but only if initiated by a user gesture.

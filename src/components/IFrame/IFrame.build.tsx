@@ -1,17 +1,18 @@
 import { useEnhancedNode } from '@ws-ui/webform-editor';
 import cn from 'classnames';
-import { FC } from 'react';
+import { FC, HTMLAttributeReferrerPolicy } from 'react';
 import { IIFrameProps } from './IFrame.config';
 
 import { BsFillInfoCircleFill } from 'react-icons/bs';
 
 const IFrame: FC<IIFrameProps> = ({
   datasource,
-  srcdoc,
+  referrerpolicy,
+  Isandbox = [{ restriction: '' }],
+  Ipermissions = [{ permission: '' }],
   name,
-  height,
-  width,
   style,
+  allowfullscreen,
   className,
   classNames = [],
 }) => {
@@ -19,16 +20,51 @@ const IFrame: FC<IIFrameProps> = ({
     connectors: { connect },
   } = useEnhancedNode();
 
+  let referrerPolicyVar: HTMLAttributeReferrerPolicy = '';
+  switch (referrerpolicy) {
+    case 'no-referrer-when-downgrade':
+      referrerPolicyVar = 'no-referrer-when-downgrade';
+      break;
+    case 'no-referrer':
+      referrerPolicyVar = 'no-referrer';
+      break;
+    case 'same-origin':
+      referrerPolicyVar = 'same-origin';
+      break;
+    case 'origin':
+      referrerPolicyVar = 'origin';
+      break;
+    case 'origin-when-cross-origin':
+      referrerPolicyVar = 'origin-when-cross-origin';
+      break;
+    case 'strict-origin-when-cross-origin':
+      referrerPolicyVar = 'strict-origin-when-cross-origin';
+      break;
+    case 'unsafe-url':
+      referrerPolicyVar = 'unsafe-url';
+      break;
+    default:
+      referrerPolicyVar = '';
+  }
+
+  const processArray = (arr: any[], separator = '') => {
+    let list: string[] = [];
+    arr.forEach((element) => {
+      list.push(element.restriction || element.permission);
+    });
+    return list.join(separator);
+  };
+
   return (
-    <div ref={connect} style={{ padding: 10, ...style }} className={cn(className, classNames)}>
+    <div ref={connect} style={style} className={cn(className, classNames)}>
       {datasource ? (
-        <iframe
-          style={{ border: 'solid 1px gray' }}
-          srcDoc={srcdoc}
-          name={name}
-          height={height}
-          width={width}
-        />
+        <div className="w-full h-full p-4">
+          &lt;iframe name="{name}" src="${datasource}" height="{style?.height}" width="
+          {style?.width} " referrerpolicy="
+          {referrerPolicyVar}" sandbox="{processArray(Isandbox, ' ')}" allow="
+          {processArray(Ipermissions, ';')}" {allowfullscreen ? 'allowfullscreen' : ''}
+          &gt;&lt;/iframe&gt;
+        </div>
       ) : (
         <div className="flex h-24 w-full flex-col items-center justify-center gap-2 rounded-lg border bg-purple-400 py-4 text-white">
           <BsFillInfoCircleFill className=" h-6 w-6" />
