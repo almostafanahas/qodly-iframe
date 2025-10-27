@@ -2,7 +2,7 @@
   "app_id": "qodly_9410b4bda13498eea0de",
   "name": "qodly-iframe",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "author": {
     "name": "Qodly Team",
